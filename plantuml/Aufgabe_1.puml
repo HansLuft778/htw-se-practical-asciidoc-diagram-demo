@@ -1,0 +1,25 @@
+@startuml aufgabe1
+left to right direction
+actor Nutzer
+actor Service
+
+rectangle "eRoller App" {
+    usecase "UC01\nRoller finden" as uc01 #f74
+    usecase "UC02\nRoller freischalten" as uc02 #ff4
+    usecase "UC03\nRoller abstellen" as uc03 #0f5
+    usecase "UC04\nRoller melden" as uc04 #9900ff
+
+    usecase "UC05\nAnmeldedaten erfassen" as uc05
+    usecase "UC06\nRoller verawlten" <<unspezifiziert>> as uc06
+}
+
+Nutzer -- uc01 #f74;line.bold
+Nutzer -- uc02 #line.dashed;line.bold;
+Nutzer -- uc03 #000;line.dotted
+Nutzer -- uc04
+
+Service -- uc06
+
+uc02 ..> uc05 : include
+
+@enduml
